@@ -1,0 +1,12 @@
+
+body {
+  background-color: rgb(233, 228, 255);
+}
+
+.bg-dark {
+  background-color: rgb(37, 33, 54) !important;
+}
+
+#user-dropdown .fas {
+  width: 1.8rem;
+}
