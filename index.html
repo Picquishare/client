@@ -32,6 +32,44 @@
 
 <body>
     <div id="app">
+
+        <navbar v-bind:logged-in="loggedIn" v-on:navbar-login="loginUser" v-on:navbar-logout="logoutUser"></navbar>
+
+        <div>
+          <!-- Using modifiers -->
+          <b-button v-b-modal.upload-image-modal>Show Modal</b-button>
+        
+          <!-- The modal -->
+          <b-modal id="upload-image-modal" hide-footer>
+            <div class="row">
+              Hello From My Modal!
+            </div>
+  
+            <div class="row">
+              <form enctype="multipart/form-data">
+  
+                <div>
+                  <label for="upload-image">Upload image:</label>
+                </div>
+  
+                <div>
+                  <input type="file" name="upload-image" id="upload-image" style="display: none">
+                </div>
+  
+                <div>
+                  <input type="submit" value="Send!">
+                </div>
+  
+              </form>
+  
+            </div>
+  
+          </b-modal>
+        </div>
+  
+  
+
+
         <div class="container border">
             <!-- Top Navigation -->
             <!-- <div class="content"> -->
@@ -41,6 +79,9 @@
             <!-- </div> -->
         </div>
     </div>
+
+    <script src="./js/components/Navbar.js"></script>
+
     <script src="./js/components/ListAll.js"></script>
     <script src="./js/main.js"></script>
 
