@@ -1,116 +1,49 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Picquishare</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="icon" href="./resources/img/wordpress-website-logo.png" type="image/png" />
+    <script src="//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js"></script>
 
-  <!-- Bootstrap + Vue -->
-  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-  <link rel="icon" href="./resources/img/wordpress-website-logo.png" type="image/png" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
-  <!--  WYSIWYG by Dimitri -->
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="./lib/bootstrap.css" /> -->
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-
-
-  <script src="//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js"></script>
-  <!-- Vue.js -->
-  <!-- development version, includes helpful console warnings -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div id="app">
+    <div id="app">
+        <div class="container border">
+            <!-- Top Navigation -->
+            <!-- <div class="content"> -->
+            <div class="row">
+                <image-row></image-row>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+    <script src="./js/components/ListAll.js"></script>
+    <script src="./js/main.js"></script>
 
-
-
-
-
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">Picquishare</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <!-- <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li> -->
-            </ul>
-
-            <button v-if="!loggedIn" v-on:click="loginUser" class="btn btn-outline-primary my-2 my-sm-0 mr-2" type="submit"><i class="fas fa-sign-in-alt"></i> Log In</button>
-            <button v-if="!loggedIn" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fas fa-user"></i> Sign Up</button>
-              <div v-if="loggedIn">
-                <b-dropdown id="user-dropdown" text="User" variant="outline-success" right text="Right align">
-                  <b-dropdown-item><i class="fas fa-user"></i> Profile</b-dropdown-item>
-                  <b-dropdown-item><i class="fas fa-users"></i> Friends</b-dropdown-item>
-                  <b-dropdown-divider></b-dropdown-divider>
-                  <b-dropdown-item><i class="fas fa-cog"></i> Settings</b-dropdown-item>
-                  <b-dropdown-item v-on:click="logoutUser"><i class="fas fa-sign-out-alt"></i> Log Out</b-dropdown-item>
-                </b-dropdown>
-              </div>
-          </div>
-        </nav>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  </div>
-
-
-  <script>
-    var url = "http://localhost:3000/api/articles";
-    var app = new Vue({
-      el: "#app",
-      data: {
-        loggedIn: false,
-      },
-
-      computed: {
-      },
-
-      watch: {
-      },
-
-      created() {
-      },
-
-      methods: {
-        loginUser() {
-          this.loggedIn = true;
-        },
-
-        logoutUser() {
-          this.loggedIn = false;
-        },
-      }
-    });
-  </script>
 </body>
 
 </html>
