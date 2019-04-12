@@ -33,7 +33,6 @@ Vue.component("navbar", {
         <div v-if="loggedIn">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
         </div>
-
         <div v-if="loggedIn">
           
         </div>

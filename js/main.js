@@ -10,16 +10,16 @@ function onSuccess(googleUser) {
   if (!localStorage.getItem('token')) {
     app.loginGoogle(id_token)
   }
-
 }
 
 function onFailure(error) {
   console.log(error);
 }
+
 function renderButton() {
   gapi.signin2.render('my-signin2', {
     'scope': 'profile email',
-    'width': 250,
+    'width': 230,
     'height': 50,
     'longtitle': true,
     'theme': 'light',
@@ -73,9 +73,9 @@ var app = new Vue({
     },
     addImage(payload) {
       let data = new FormData()
-            data.append('caption', payload.caption)
-            data.append('image', payload.image)
-            data.append('tags', payload.tags)
+        data.append('caption', payload.caption)
+        data.append('image', payload.image)
+        data.append('tags', payload.tags)
       console.log('masuk ke add image')
       console.log(data)
       axios
