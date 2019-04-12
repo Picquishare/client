@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(233, 228, 255);
+  width: 100%;
+}
+
+.main-menu {
+  margin-top: 5%;
+  width: 90%;
+}
+
+.contain-items {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bg-dark {
+  background-color: rgb(37, 33, 54) !important;
+}
+
+#user-dropdown .fas {
+  width: 1.8rem;
+}
+
+.st-label,
+.st-shares {
+  display: none !important;
+}
