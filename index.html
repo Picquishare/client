@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Picquishare</title>
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
@@ -19,6 +19,12 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -29,10 +35,10 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Sharethis -->
+    <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5cafc41b8c73c200120fe878&product=inline-share-buttons' async='async'></script>
 
-    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -40,38 +46,8 @@
 
         <navbar v-bind:logged-in="loggedIn" v-on:navbar-login="loginUser" v-on:navbar-logout="logoutUser"></navbar>
 
-        <div>
-          <!-- Using modifiers -->
-          <b-button v-b-modal.upload-image-modal>Show Modal</b-button>
-        
-          <!-- The modal -->
-          <b-modal id="upload-image-modal" hide-footer>
-            <div class="row">
-              Hello From My Modal!
-            </div>
-  
-            <div class="row">
-              <form enctype="multipart/form-data">
-  
-                <div>
-                  <label for="upload-image">Upload image:</label>
-                </div>
-  
-                <div>
-                  <input type="file" name="upload-image" id="upload-image" style="display: none">
-                </div>
-  
-                <div>
-                  <input type="submit" value="Send!">
-                </div>
-  
-              </form>
-  
-            </div>
-  
-          </b-modal>
-        </div>
-  
+ 
+
   
 
 
@@ -83,12 +59,39 @@
             </div>
             <!-- </div> -->
         </div>
+
+
+        <div class="container">
+          <div class="row ">
+              <img v-on:mouseover="active = true" v-on:mouseleave="active = false" v-bind:class="{ 'flip-2-ver-right-bck' : active }" src="https://static.pexels.com/photos/10664/b4d29be0fa6c806b5239556952d2e24d-large.jpg" alt="img26" />
+              <div v-if="active">NYALA</div>
+              <div v-if="!active">MATI</div>
+
+          </div>
+          
+          <div class="row">
+            <img src="http://www.clker.com/cliparts/3/m/v/Y/E/V/small-red-apple-md.png" alt="img26" />
+          </div>
+                <!-- 
+          <div class="row">
+              <img src="https://static.pexels.com/photos/10664/b4d29be0fa6c806b5239556952d2e24d-large.jpg" alt="img26" />
+          </div>
+          <div class="row">
+              <img src="https://static.pexels.com/photos/10664/b4d29be0fa6c806b5239556952d2e24d-large.jpg" alt="img26" />
+          </div>
+          <div class="row">
+              <img src="https://static.pexels.com/photos/10664/b4d29be0fa6c806b5239556952d2e24d-large.jpg" alt="img26" />
+          </div> -->
+        </div>
+
+
+
+        <div class="sharethis-inline-share-buttons" data-url="http://google.com" data-title="Look at this awesome picture!"></div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
     <script src="./js/components/Navbar.js"></script>
-
     <script src="./js/components/ListAll.js"></script>
     <script src="./js/main.js"></script>
 
