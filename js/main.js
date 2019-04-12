@@ -44,7 +44,8 @@ var app = new Vue({
     loggedIn: false,
     selectedTags: '',
     caption: '',
-    image: ''
+    image: '',
+    allImage : []
   },
   created() { },
 
@@ -93,11 +94,28 @@ var app = new Vue({
       .catch((err) => {
         console.log(err)
       })
+    },
+    getAllImage() {
+      this.allImage = []
+      axios
+      .get(baseURL + '/share', {
+        headers: {
+          token: localStorage.getItem('token')
+        }
+      })
+      .then(({data}) => {
+        console.log(data)
+        this.allImage = data
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     }
   },
   created() {
     if (localStorage.getItem('token')) {
       this.loggedIn = true
+      this.getAllImage()
     }
   },
 });

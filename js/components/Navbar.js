@@ -31,7 +31,7 @@ Vue.component("navbar", {
           </li> -->
         </ul>
         <div v-if="loggedIn">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Add Image</button>
         </div>
         <div v-if="loggedIn">
           <a class="nav-link" href="#" v-on:click="logoutUser" style="color:white">
