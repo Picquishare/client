@@ -14,6 +14,10 @@ Vue.component("form-modal", {
             this.dataImage.image = this.$refs.file.files[0]
             console.log('masuk ke form')
             this.$emit('add-submit', this.dataImage)
+            this.dataImage.caption = ''
+            this.dataImage.image = ''
+            this.dataImage.tags = ''
+            $('#exampleModal').modal('toggle');
         }
     },
     components: {

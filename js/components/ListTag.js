@@ -1,15 +1,14 @@
-Vue.component('image-row', {
-    props: ['allImage'],
+Vue.component('tag-row', {
+    props: ['allTag'],
     methods: {
         clickTag(tag) {
-            console.log('masuk ke click tag')
             this.$emit('click-tag', tag)
         }
     },
     template: `
 
     <div class="row container">
-        <div class="Instagram-card" v-for="item in allImage">
+        <div class="Instagram-card" v-for="item in allTag">
             <div class="Instagram-card-header">
                 <p>{{item.UserId.firstName}} {{item.UserId.lastName}}</p>
             </div>
@@ -17,7 +16,8 @@ Vue.component('image-row', {
             <div class="Instagram-card-image">
             <img v-bind:src="item.imageLink"/>
             </div>
-            <div class="sharethis-inline-share-buttons" v-bind:data-url="item.imageLink" data-title="Look at this awesome image"></div>
+
+            <div class="sharethis-inline-share-buttons" v-bind:data-url="item.imageLink" data-title="Look at this awesome picture!"></div>
 
             <div class="Instagram-card-content well text-center">
                 <p>{{item.caption}}</p>

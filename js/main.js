@@ -45,11 +45,16 @@ var app = new Vue({
     selectedTags: '',
     caption: '',
     image: '',
-    allImage : []
+    allImage: [],
+    allTag: []
   },
   created() { },
 
   methods: {
+    changeHome() {
+      console.log('masuk ke home main')
+      this.getAllImage()
+    },
     onSignIn() {
 
     },
@@ -57,9 +62,19 @@ var app = new Vue({
 
     },
     logoutUser() {
-      localStorage.clear()
+
       this.loggedIn = false;
+      this.allImage = []
+      this.allTag = []
       disconnectGoogle()
+      localStorage.clear()
+      Swal.fire({
+        position: 'top-end',
+        type: 'success',
+        title: 'Logout success',
+        showConfirmButton: false,
+        timer: 1500
+      })
     },
     loginGoogle(token) {
       axios
@@ -69,53 +84,99 @@ var app = new Vue({
         .then(({ data }) => {
           localStorage.setItem('token', data.token)
           this.loggedIn = true
+          this.getAllImage()
+          Swal.fire({
+            position: 'top-end',
+            type: 'success',
+            title: 'Login success',
+            showConfirmButton: false,
+            timer: 1500
+          })
         })
         .catch((err) => {
+          Swal.fire({
+            type: 'error',
+            title: 'Oops something wrong'
+          })
           console.log(err)
         })
     },
     addImage(payload) {
       let data = new FormData()
-        data.append('caption', payload.caption)
-        data.append('image', payload.image)
-        data.append('tags', payload.tags)
+      data.append('caption', payload.caption)
+      data.append('image', payload.image)
+      data.append('tags', payload.tags)
       console.log('masuk ke add image')
       console.log(data)
       axios
-      .post(baseURL + '/share/upload', data, {
-        headers: {
-          token: localStorage.getItem('token')
-        }
-      })
-      .then(({data}) => {
-        console.log('berhasil upload')
-        console.log(data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+        .post(baseURL + '/share/upload', data, {
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        })
+        .then(({ data }) => {
+          console.log('berhasil upload')
+          console.log(data)
+          Swal.fire({
+            position: 'top-end',
+            type: 'success',
+            title: 'Added image',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.allImage.unshift(data)
+          // this.getAllImage()
+        })
+        .catch((err) => {
+          Swal.fire({
+            type: 'error',
+            title: 'Oops something wrong'
+          })
+          console.log(err)
+        })
     },
     getAllImage() {
       this.allImage = []
+      this.allTag = []
       axios
-      .get(baseURL + '/share', {
-        headers: {
-          token: localStorage.getItem('token')
-        }
-      })
-      .then(({data}) => {
-        console.log(data)
-        this.allImage = data
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+        .get(baseURL + '/share', {
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        })
+        .then(({ data }) => {
+          console.log(data)
+          this.allImage = data.reverse()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    findByTag(payload) {
+      console.log('masuk ke main tag')
+      this.allImage = []
+      this.allTag = []
+      axios
+        .get(baseURL + `/share/tag?tags=${payload}`)
+        .then(({ data }) => {
+          console.log(data)
+          console.log('berhasil', data)
+          this.allTag = data.ShareId.reverse()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
   },
   created() {
     if (localStorage.getItem('token')) {
       this.loggedIn = true
       this.getAllImage()
+    }
+    else {
+      this.loggedIn = false
+      this.allImage = []
+      this.allTag = []
     }
   },
 });

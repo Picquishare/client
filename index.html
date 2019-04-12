@@ -10,7 +10,8 @@
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <meta name="google-signin-client_id" content="612120755275-6nmu9ll2cqel95s8umd2pqn4iabopn84.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="612120755275-6nmu9ll2cqel95s8umd2pqn4iabopn84.apps.googleusercontent.com">
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -25,7 +26,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="main.css">
 
@@ -39,8 +41,12 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
     <!-- Sharethis -->
-    <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5cafc41b8c73c200120fe878&product=inline-share-buttons' async='async'></script>
+    <script type='text/javascript'
+        src='//platform-api.sharethis.com/js/sharethis.js#property=5cafc41b8c73c200120fe878&product=inline-share-buttons'
+        async='async'></script>
 
 
 </head>
@@ -48,17 +54,19 @@
 <body>
     <div id="app">
 
-        <navbar v-bind:logged-in="loggedIn" v-on:navbar-login="loginUser" v-on:navbar-logout="logoutUser"></navbar>
+        <navbar v-bind:logged-in="loggedIn" v-on:navbar-login="loginUser" v-on:navbar-logout="logoutUser"
+            @tohome="changeHome"></navbar>
 
         <form-modal @add-submit="addImage"></form-modal>
 
         <div class="container main-menu">
             <div class="row contain-items">
-                <image-row :all-image="allImage"></image-row>
+                <image-row :all-image="allImage" @click-tag="findByTag"></image-row>
+                <tag-row :all-tag="allTag" @click-tag="findByTag"></tag-row>
             </div>
         </div>
-          
-        </div>
+
+    </div>
 
     </div>
 
@@ -67,6 +75,7 @@
     <script src="./js/components/FormModal.js"></script>
     <script src="./js/components/Navbar.js"></script>
     <script src="./js/components/ListAll.js"></script>
+    <script src="./js/components/ListTag.js"></script>
 
     <script src="./js/main.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
