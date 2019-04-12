@@ -56,7 +56,9 @@ var app = new Vue({
 
     },
     logoutUser() {
+      localStorage.clear()
       this.loggedIn = false;
+      disconnectGoogle()
     },
     loginGoogle(token) {
       axios
