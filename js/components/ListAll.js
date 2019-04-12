@@ -18,6 +18,11 @@ Vue.component('image-row', {
                 <p>{{item.caption}}</p>
                 <hr>
             </div> 
+            <div class="list-tags">  
+                <v-flex v-for="tag in item.tags">
+                    <a href="">{{ tag }}</a>
+                </v-flex>
+            </div>
       </div>
     </div>
 
