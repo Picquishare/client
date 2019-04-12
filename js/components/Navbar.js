@@ -30,12 +30,14 @@ Vue.component("navbar", {
             <a class="nav-link" href="#">Link</a>
           </li> -->
         </ul>
-
+        <div v-if="loggedIn">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+        </div>
         <div v-if="loggedIn">
           
         </div>
         <div v-if="!loggedIn">
-          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          <div id="my-signin2"></div>
         </div>
 
         
