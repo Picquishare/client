@@ -8,7 +8,7 @@ Vue.component('tag-row', {
     template: `
 
     <div class="row container">
-        <div class="Instagram-card" v-for="item in allTag.ShareId">
+        <div class="Instagram-card" v-for="item in allTag">
             <div class="Instagram-card-header">
                 <p>{{item.UserId.firstName}} {{item.UserId.lastName}}</p>
             </div>
@@ -24,9 +24,9 @@ Vue.component('tag-row', {
                 <hr>
             </div> 
             <div class="list-tags">  
-                <v-flex v-for="tag in item.tags">
+                <div class="tags-content" v-for="tag in item.tags">
                     <a href="" v-on:click.prevent="clickTag(tag)">{{ tag }}</a>
-                </v-flex>
+                </div>
             </div>
       </div>
     </div>
