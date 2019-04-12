@@ -3,18 +3,15 @@ var app = new Vue({
   data: {
     loggedIn: false
   },
-
-  computed: {},
-
-  watch: {},
-
   created() {},
 
   methods: {
-    loginUser() {
-      this.loggedIn = true;
+    onSignIn() {
+      
     },
-
+    loginUser() {
+      
+    },
     logoutUser() {
       this.loggedIn = false;
     }
