@@ -19,9 +19,9 @@ Vue.component('image-row', {
                 <hr>
             </div> 
             <div class="list-tags">  
-                <v-flex v-for="tag in item.tags">
+                <div class="tags-content" v-for="tag in item.tags">
                     <a href="">{{ tag }}</a>
-                </v-flex>
+                </div>
             </div>
       </div>
     </div>
