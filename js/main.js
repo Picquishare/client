@@ -45,11 +45,16 @@ var app = new Vue({
     selectedTags: '',
     caption: '',
     image: '',
-    allImage : []
+    allImage : [],
+    allTag: []
   },
   created() { },
 
   methods: {
+    changeHome() {
+      console.log('masuk ke home main')
+      this.getAllImage()
+    },
     onSignIn() {
 
     },
@@ -69,6 +74,7 @@ var app = new Vue({
         .then(({ data }) => {
           localStorage.setItem('token', data.token)
           this.loggedIn = true
+          this.getAllImage()
         })
         .catch((err) => {
           console.log(err)
@@ -90,6 +96,7 @@ var app = new Vue({
       .then(({data}) => {
         console.log('berhasil upload')
         console.log(data)
+        this.getAllImage()
       })
       .catch((err) => {
         console.log(err)
@@ -97,6 +104,7 @@ var app = new Vue({
     },
     getAllImage() {
       this.allImage = []
+      this.allTag = []
       axios
       .get(baseURL + '/share', {
         headers: {
@@ -110,12 +118,29 @@ var app = new Vue({
       .catch((err) => {
         console.log(err)
       })
+    },
+    findByTag(payload) {
+      this.allImage = []
+      this.allTag = []
+      axios
+      .get(baseURL + `/share/tag?tags=${payload}`)
+      .then(({data}) => {
+        console.log(data)
+        console.log('berhasil', data)
+        this.allTag = data
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     }
   },
   created() {
     if (localStorage.getItem('token')) {
       this.loggedIn = true
       this.getAllImage()
+    }
+    else {
+      this.loggedIn = false
     }
   },
 });

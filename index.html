@@ -48,13 +48,14 @@
 <body>
     <div id="app">
 
-        <navbar v-bind:logged-in="loggedIn" v-on:navbar-login="loginUser" v-on:navbar-logout="logoutUser"></navbar>
+        <navbar v-bind:logged-in="loggedIn" v-on:navbar-login="loginUser" v-on:navbar-logout="logoutUser" @tohome="changeHome"></navbar>
 
         <form-modal @add-submit="addImage"></form-modal>
 
         <div class="container main-menu">
             <div class="row contain-items">
-                <image-row :all-image="allImage"></image-row>
+                <image-row :all-image="allImage" @click-tag="findByTag"></image-row>
+                <tag-row :all-tag="allTag" @click-tag="findByTag"></tag-row>
             </div>
         </div>
           
@@ -67,6 +68,7 @@
     <script src="./js/components/FormModal.js"></script>
     <script src="./js/components/Navbar.js"></script>
     <script src="./js/components/ListAll.js"></script>
+    <script src="./js/components/ListTag.js"></script>
 
     <script src="./js/main.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>

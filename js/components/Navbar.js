@@ -11,12 +11,16 @@ Vue.component("navbar", {
 
     logoutUser() {
       this.$emit("navbar-logout");
+    },
+    toHome() {
+      console.log('masuk ke home')
+      this.$emit('tohome')
     }
   },
 
   template: `
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Picquishare</a>
+      <a class="navbar-brand" href="" v-on:click.prevent="toHome">Picquishare</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
