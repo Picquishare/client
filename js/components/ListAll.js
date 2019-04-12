@@ -1,6 +1,8 @@
 Vue.component('image-row', {
     template: `
-    <div class="col-12">
+    <div>
+
+    <div class="row">
         <figure class="effect-zoe">
             <img src="https://static.pexels.com/photos/10664/b4d29be0fa6c806b5239556952d2e24d-large.jpg" alt="img26" />
             <figcaption>
@@ -13,10 +15,10 @@ Vue.component('image-row', {
                 <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
             </figcaption>
         </figure>
-        <div>
-            <p>hahahaha</p>
-            <p>hahahahawdguyagwduagudygwda</p>
-        </div>
+    </div>
+
+
+
     </div>
     `
 })

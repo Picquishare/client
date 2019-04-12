@@ -10,3 +10,8 @@ body {
 #user-dropdown .fas {
   width: 1.8rem;
 }
+
+.st-label,
+.st-shares {
+  display: none !important;
+}
