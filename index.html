@@ -51,46 +51,14 @@
         <navbar v-bind:logged-in="loggedIn" v-on:navbar-login="loginUser" v-on:navbar-logout="logoutUser"></navbar>
 
         <form-modal @add-submit="addImage"></form-modal>
- 
-  
 
-
-        <div class="container border">
-            <!-- Top Navigation -->
-            <!-- <div class="content"> -->
-            <div class="row">
+        <div class="container main-menu">
+            <div class="row contain-items">
                 <image-row></image-row>
             </div>
-            <!-- </div> -->
         </div>
-
-
-        <div class="container">
-          <div class="row ">
-              <img v-on:mouseover="active = true" v-on:mouseleave="active = false" v-bind:class="{ 'flip-2-ver-right-bck' : active }" src="https://static.pexels.com/photos/10664/b4d29be0fa6c806b5239556952d2e24d-large.jpg" alt="img26" />
-              <div v-if="active">NYALA</div>
-              <div v-if="!active">MATI</div>
-
-          </div>
           
-          <div class="row">
-            <img src="http://www.clker.com/cliparts/3/m/v/Y/E/V/small-red-apple-md.png" alt="img26" />
-          </div>
-                <!-- 
-          <div class="row">
-              <img src="https://static.pexels.com/photos/10664/b4d29be0fa6c806b5239556952d2e24d-large.jpg" alt="img26" />
-          </div>
-          <div class="row">
-              <img src="https://static.pexels.com/photos/10664/b4d29be0fa6c806b5239556952d2e24d-large.jpg" alt="img26" />
-          </div>
-          <div class="row">
-              <img src="https://static.pexels.com/photos/10664/b4d29be0fa6c806b5239556952d2e24d-large.jpg" alt="img26" />
-          </div> -->
         </div>
-
-
-
-        <div class="sharethis-inline-share-buttons" data-url="http://google.com" data-title="Look at this awesome picture!"></div>
 
     </div>
 

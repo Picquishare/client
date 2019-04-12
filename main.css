@@ -1,6 +1,17 @@
-
 body {
   background-color: rgb(233, 228, 255);
+  width: 100%;
+}
+
+.main-menu {
+  margin-top: 5%;
+  width: 90%;
+}
+
+.contain-items {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .bg-dark {
