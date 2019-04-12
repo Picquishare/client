@@ -12,7 +12,11 @@
 
     <meta name="google-signin-client_id" content="612120755275-6nmu9ll2cqel95s8umd2pqn4iabopn84.apps.googleusercontent.com">
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@voerro/vue-tagsinput@1.8.0/dist/voerro-vue-tagsinput.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@voerro/vue-tagsinput@1.11.2/dist/style.css">
 
     <link rel="icon" href="./resources/img/wordpress-website-logo.png" type="image/png" />
     <script src="//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js"></script>
@@ -39,38 +43,7 @@
     <div id="app">
 
         <navbar v-bind:logged-in="loggedIn" v-on:navbar-login="loginUser" v-on:navbar-logout="logoutUser"></navbar>
-
-        <div>
-          <!-- Using modifiers -->
-          <b-button v-b-modal.upload-image-modal>Show Modal</b-button>
-        
-          <!-- The modal -->
-          <b-modal id="upload-image-modal" hide-footer>
-            <div class="row">
-              Hello From My Modal!
-            </div>
-  
-            <div class="row">
-              <form enctype="multipart/form-data">
-  
-                <div>
-                  <label for="upload-image">Upload image:</label>
-                </div>
-  
-                <div>
-                  <input type="file" name="upload-image" id="upload-image" style="display: none">
-                </div>
-  
-                <div>
-                  <input type="submit" value="Send!">
-                </div>
-  
-              </form>
-  
-            </div>
-  
-          </b-modal>
-        </div>
+        <form-modal @add-submit="addImage"></form-modal>
   
   
 
@@ -87,10 +60,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+    <script src="./js/components/FormModal.js"></script>
     <script src="./js/components/Navbar.js"></script>
-
     <script src="./js/components/ListAll.js"></script>
+
     <script src="./js/main.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
 
 </body>
 
